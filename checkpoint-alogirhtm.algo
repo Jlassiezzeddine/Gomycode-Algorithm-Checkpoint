@@ -6,8 +6,7 @@ BEGIN
     //Input
     Read(sentenceStr);
 
-    //Instructions
-    //Condition to make sure string is not empty, 
+    //Instructions 
     FUNCTION counting(sentenceStr) : INTEGER
     VAR
         i, spaceCount, wordsCount, vowelsCount : INTEGER := 0;
