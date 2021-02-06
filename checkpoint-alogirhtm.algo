@@ -1,0 +1,47 @@
+ALGORITHM Sentence_processing
+VAR
+    sentenceStr : STRING;
+    sentenceLength : INTEGER;
+BEGIN
+    //Input
+    Read(sentenceStr);
+
+    //Instructions
+    //Condition to make sure string is not empty, 
+    FUNCTION counting(sentenceStr) : INTEGER
+    VAR
+        i, spaceCount, wordsCount, vowelsCount : INTEGER := 0;
+        char : CHAR;
+    BEGIN
+        sentenceLength := sentenceStr.length;
+        FOR i FROM 0 TO sentenceLength - 1 STEP 1  DO
+            char := sentenceStr[i];
+            SWITCH (char) DO
+                case "A" :  vowelsCount := vowelsCount +1 ;
+                case "E" :  vowelsCount := vowelsCount +1 ;
+                case "O" :  vowelsCount := vowelsCount +1 ;
+                case "I" :  vowelsCount := vowelsCount +1 ;
+                case "U" :  vowelsCount := vowelsCount +1 ;
+                case "a" :  vowelsCount := vowelsCount +1 ;
+                case "e" :  vowelsCount := vowelsCount +1 ;
+                case "o" :  vowelsCount := vowelsCount +1 ;
+                case "i" :  vowelsCount := vowelsCount +1 ;
+                case "u" :  vowelsCount := vowelsCount +1 ;
+                default :  
+            END_SWITCH
+            SWITCH (char) DO
+                case " " :  wordsCount := wordsCount +1;
+                case "." :  IF (NOT sentenceStr[i-1] = " ") THEN
+                            wordsCount := wordsCount +1
+                            END_IF;
+                default : 
+            END_SWITCH
+        END_FOR
+        RETURN vowelsCount, wordsCount, sentenceLength ;
+    END
+    
+    Write("Sentence Length is : " sentenceLength);
+    Write("Words count is : " wordsCount);
+    Write("Vowels count is : " vowelsCount);
+    
+END
